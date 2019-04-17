@@ -1,19 +1,25 @@
-n = int(input())
+numPartidas = int(input())
 
-value = {1:25, 2:50, 3:100, 4:4, 5:5, 6:6, 7:7, 11:12, 12:11, 13:13}
-Adalberto, Bernadete = 0, 0
+contPartidasA = 0
+contPartidasB = 0
 
-for i in range(n):
+cartas = [4, 5, 6, 7, 12, 11, 13, 1, 2, 3]
+
+for i in range(numPartidas):
 	cards = [int(j) for j in input().split()]
-	Ad, Br = 0, 0
-	for j in range(3):
-		if value[cards[j]] >= value[cards[j+3]]:
-			Ad += 1
+
+	cartasA = 0
+	cartasB = 0
+
+	for k in range(3):
+		if cartas.index(cards[k]) >= cartas.index(cards[k+3]):
+			cartasA += 1
 		else:
-			Br += 1
-	if Ad >= Br:
-		Adalberto += 1
+			cartasB += 1
+
+	if cartasA > cartasB:
+		contPartidasA += 1
 	else:
-		Bernadete += 1
-		
-print(Adalberto, Bernadete)
+		contPartidasB += 1
+
+print(contPartidasA, contPartidasB)
